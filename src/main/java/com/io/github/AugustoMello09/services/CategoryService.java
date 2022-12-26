@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.io.github.AugustoMello09.dto.CategoryDTO;
 import com.io.github.AugustoMello09.entities.Category;
 import com.io.github.AugustoMello09.repositories.CategoryRepository;
+import com.io.github.AugustoMello09.services.exceptions.EntityNotFoundException;
 
 @Service
 public class CategoryService {
@@ -28,7 +29,7 @@ public class CategoryService {
 	@Transactional(readOnly = true)
 	public CategoryDTO findById(Long id) {
 		Optional<Category> obj = repository.findById(id);
-		Category entity = obj.get();
+		Category entity = obj.orElseThrow(() -> new EntityNotFoundException("Entity Not Found"));
 		return new CategoryDTO(entity);
 		
 	}
