@@ -1,6 +1,6 @@
 # StoreBill
 
-Reforçandos os conhecimentos em JAVA com spring boot.
+Reforçando os conhecimentos em JAVA com spring boot.
 CRUD's category e product:
 
 - Busca paginada 
